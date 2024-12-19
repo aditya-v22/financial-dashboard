@@ -35,6 +35,7 @@ export default {
           100: '#F3F3F5',
           200: '#EDF1F7',
           600: '#9199AF',
+          950: '#232323',
         },
       },
       colors: {
@@ -66,6 +67,7 @@ export default {
 
       // border radius
       borderRadius: {
+        small: '10px',
         medium: '15px',
         large: '25px',
       },
