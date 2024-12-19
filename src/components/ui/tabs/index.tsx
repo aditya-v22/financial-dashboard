@@ -36,9 +36,9 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
   return (
     <TabsContext.Provider value={providerValue}>
       <div
-        ref={ref}
         className={cn('w-full', className)}
         {...tabsProps}
+        ref={ref}
       />
     </TabsContext.Provider>
   );
@@ -60,10 +60,10 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>((props, ref) => {
   return (
     <RovingFocusProvider>
       <div
-        ref={ref}
         role='tablist'
         className={cn('w-full h-full flex gap-10 border-b border-gray-100', className)}
         {...tabsListProps}
+        ref={ref}
       />
     </RovingFocusProvider>
   );
@@ -164,8 +164,8 @@ const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>((props, ref) =>
       data-state={isSelected ? 'active' : 'inactive'}
       className={cn('hidden data-[state=active]:block transition-all', className)}
       tabIndex={0}
-      ref={ref}
       {...tabsContentProps}
+      ref={ref}
     >
       {isSelected && children}
     </div>
