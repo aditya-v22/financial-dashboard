@@ -15,6 +15,22 @@ export default {
           100: '#F4F5F7',
         },
       },
+      ringColor: {
+        primary: {
+          50: '#DFE5EE',
+          100: '#DFEAF2',
+          200: '#E6EFF5',
+          600: '#396AFF',
+          900: '#343C6A',
+        },
+        gray: {
+          50: '#F3F3F5',
+          100: '#F4F5F7',
+        },
+        error: {
+          500: '#FF4B4A',
+        },
+      },
       textColor: {
         light: '#FFFFFF',
         primary: {
@@ -62,6 +78,11 @@ export default {
         },
         success: {
           400: '#41D4A8',
+        },
+      },
+      caretColor: {
+        primary: {
+          100: '#718EBF',
         },
       },
 
