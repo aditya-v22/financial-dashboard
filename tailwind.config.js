@@ -71,6 +71,12 @@ export default {
         medium: '15px',
         large: '25px',
       },
+
+      // font family
+      fontFamily: {
+        lato: ['Lato', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
+      },
     },
   },
   plugins: [],
