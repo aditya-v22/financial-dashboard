@@ -6,21 +6,21 @@ const LABEL_NAME = 'Label';
 interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   children: React.ReactNode;
   required?: boolean;
-  requiredText?: string;
-  requiredTextClassName?: HTMLLabelElement['className'];
+  /** custom required content */
+  requiredContent?: React.ReactNode;
 }
 
 const Label = forwardRef<HTMLLabelElement, LabelProps>((props, ref) => {
-  const { children, required, className, requiredText, requiredTextClassName, ...labelProps } = props;
+  const { children, required, className, requiredContent = <span>*</span>, ...labelProps } = props;
 
   return (
     <label
-      className={cn('inline-flex items-center gap-2 text-gray-950', className)}
+      className={cn('inline-flex items-center gap-1 text-gray-950', className)}
       {...labelProps}
       ref={ref}
     >
       {children}
-      {(required || requiredText) && <span className={requiredTextClassName}>{requiredText || '*'}</span>}
+      {required && requiredContent}
     </label>
   );
 });
