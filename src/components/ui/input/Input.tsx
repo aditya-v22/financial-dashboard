@@ -42,7 +42,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
       disabled={disabled}
       // disable default browser behaviour of showing built-in error message on hover
       title=''
-      className={cn(inputVariants({ variant, inputSize, className }))}
+      className={cn(inputVariants({ variant, inputSize }), className)}
       {...inputProps}
       ref={ref}
     />
