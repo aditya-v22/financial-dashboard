@@ -24,7 +24,7 @@ const inputVariants = cva(
 );
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>, VariantProps<typeof inputVariants> {
-  error?: string;
+  error?: boolean;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
@@ -35,10 +35,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   return (
     <input
       id={inputId}
-      aria-invalid={!!error}
-      aria-describedby={error ? `${props.id}-error` : undefined}
+      aria-invalid={error}
+      aria-describedby={error ? `${inputId}-error` : undefined}
+      aria-required={inputProps.required}
       data-disabled={disabled}
-      data-invalid={!!error}
+      data-invalid={error}
       disabled={disabled}
       // disable default browser behaviour of showing built-in error message on hover
       title=''
@@ -51,5 +52,5 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 
 Input.displayName = 'Input';
 
-export { Input };
+export { Input, inputVariants };
 export type { InputProps };
