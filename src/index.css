@@ -11,3 +11,24 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@layer utilities {
+  :root {
+    scrollbar-color: 'unset';
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background-color: #718ebf;
+    border-radius: 10px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background-color: #dfeaf2;
+    border-radius: 10px;
+  }
+}
