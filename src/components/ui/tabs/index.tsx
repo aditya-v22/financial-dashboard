@@ -61,7 +61,10 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>((props, ref) => {
     <RovingFocusProvider>
       <div
         role='tablist'
-        className={cn('w-full h-full flex gap-10 border-b border-gray-100', className)}
+        className={cn(
+          'w-full h-full overflow-x-auto overflow-y-hidden scrollbar flex gap-10 border-b border-gray-100',
+          className
+        )}
         {...tabsListProps}
         ref={ref}
       />
@@ -122,9 +125,11 @@ const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>((props, ref)
         }
       })}
       onKeyDown={composeEventHandlers(props.onKeyDown, (event) => {
-        if ([KEYS.SPACE, KEYS.ENTER].includes(event.key)) context?.onValueChange?.(value);
+        if (!disabled) {
+          if ([KEYS.SPACE, KEYS.ENTER].includes(event.key)) context?.onValueChange?.(value);
 
-        if ([KEYS.ARROW_LEFT, KEYS.ARROW_RIGHT].includes(event.key)) rovingFocusContext.handleKeyDown(event);
+          if ([KEYS.ARROW_LEFT, KEYS.ARROW_RIGHT].includes(event.key)) rovingFocusContext.handleKeyDown(event);
+        }
       })}
       onFocus={composeEventHandlers(props.onFocus, () => {
         rovingFocusContext.setCurrentId(buttonId);
