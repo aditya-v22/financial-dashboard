@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '../../../utils';
 
@@ -52,11 +52,12 @@ const loadingVariants = cva('animate-spin rounded-full border-2 !border-t-transp
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   children: React.ReactNode;
+  ref?: React.Ref<HTMLButtonElement | null>;
   loading?: boolean;
   loadingClassName?: HTMLElement['className'];
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+const Button: React.FC<ButtonProps> = (props) => {
   const {
     className,
     loadingClassName,
@@ -80,7 +81,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       disabled={loading || disabled}
       className={cn(buttonVariants({ variant, size }), className)}
       {...buttonProps}
-      ref={ref}
     >
       {loading && (
         <span
@@ -92,7 +92,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       {children}
     </button>
   );
-});
+};
 
 Button.displayName = BUTTON_NAME;
 

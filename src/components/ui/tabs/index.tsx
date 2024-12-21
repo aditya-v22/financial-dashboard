@@ -1,4 +1,4 @@
-import { forwardRef, PropsWithChildren, useId, useMemo, useRef } from 'react';
+import { PropsWithChildren, useId, useMemo, useRef } from 'react';
 import { useControllableState } from '../../../hooks/useControllableState';
 import { TabsContext, useTabsContext } from './context';
 import { cn } from '../../../utils';
@@ -14,6 +14,7 @@ import { KEYS } from '../../../constanst/keys';
 const TABS_NAME = 'Tabs';
 
 interface TabsProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
+  ref?: React.Ref<HTMLDivElement | null>;
   /** The value for the selected tab, if controlled */
   value?: string;
   /** The value of the tab to select by default, if uncontrolled */
@@ -22,7 +23,7 @@ interface TabsProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivEleme
   onValueChange?: (value: string) => void;
 }
 
-const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
+const Tabs: React.FC<TabsProps> = (props) => {
   const { defaultValue, onValueChange, value: valueProp, className, ...tabsProps } = props;
 
   const [value, setValue] = useControllableState({
@@ -34,15 +35,14 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
   const providerValue = useMemo(() => ({ value, onValueChange: setValue }), [setValue, value]);
 
   return (
-    <TabsContext.Provider value={providerValue}>
+    <TabsContext value={providerValue}>
       <div
         className={cn('w-full', className)}
         {...tabsProps}
-        ref={ref}
       />
-    </TabsContext.Provider>
+    </TabsContext>
   );
-});
+};
 
 Tabs.displayName = TABS_NAME;
 
@@ -52,9 +52,11 @@ Tabs.displayName = TABS_NAME;
 
 const TAB_LIST_NAME = 'TabsList';
 
-interface TabsListProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {}
+interface TabsListProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
+  ref?: React.Ref<HTMLDivElement | null>;
+}
 
-const TabsList = forwardRef<HTMLDivElement, TabsListProps>((props, ref) => {
+const TabsList: React.FC<TabsListProps> = (props) => {
   const { className, ...tabsListProps } = props;
 
   return (
@@ -66,11 +68,10 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>((props, ref) => {
           className
         )}
         {...tabsListProps}
-        ref={ref}
       />
     </RovingFocusProvider>
   );
-});
+};
 
 TabsList.displayName = TAB_LIST_NAME;
 
@@ -82,9 +83,10 @@ const TABS_TRIGGER_NAME = 'TabsTrigger';
 
 interface TabsTriggerProps extends PropsWithChildren, React.ButtonHTMLAttributes<HTMLButtonElement> {
   value: string;
+  ref?: React.Ref<HTMLButtonElement | null>;
 }
 
-const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>((props, ref) => {
+const TabsTrigger: React.FC<TabsTriggerProps> = (props) => {
   const { value, className, disabled, id, children, ...tabsTriggerProps } = props;
 
   const uniqueId = useId();
@@ -92,7 +94,7 @@ const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>((props, ref)
   const buttonRef = useRef<HTMLButtonElement>(null);
   const context = useTabsContext();
   const rovingFocusContext = useRovingFocus({ scope: 'TabsList' });
-  const mergedRef = useMergedRefs(buttonRef, ref, (node) => {
+  const mergedRef = useMergedRefs(buttonRef, props?.ref, (node) => {
     rovingFocusContext.registerRef(buttonId, node);
   });
 
@@ -140,7 +142,7 @@ const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>((props, ref)
       {children}
     </button>
   );
-});
+};
 
 TabsTrigger.displayName = TABS_TRIGGER_NAME;
 
@@ -151,10 +153,11 @@ TabsTrigger.displayName = TABS_TRIGGER_NAME;
 const TABS_CONTENT_NAME = 'TabsContent';
 
 interface TabsContentProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
+  ref?: React.Ref<HTMLDivElement | null>;
   value: string;
 }
 
-const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>((props, ref) => {
+const TabsContent: React.FC<TabsContentProps> = (props) => {
   const { value, className, id, children, ...tabsContentProps } = props;
   const context = useTabsContext();
   const uniqueId = useId();
@@ -170,12 +173,11 @@ const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>((props, ref) =>
       className={cn('hidden data-[state=active]:block transition-all', className)}
       tabIndex={0}
       {...tabsContentProps}
-      ref={ref}
     >
       {isSelected && children}
     </div>
   );
-});
+};
 
 TabsContent.displayName = TABS_CONTENT_NAME;
 

@@ -1,14 +1,6 @@
-import React, { createContext, useCallback, useContext, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { KEYS } from '../../constanst/keys';
-
-interface RovingFocusContextValue {
-  registerRef: (id: string, ref: HTMLElement | null) => void;
-  handleKeyDown: (event: React.KeyboardEvent<HTMLElement>) => void;
-  currentId: string | null;
-  setCurrentId: React.Dispatch<React.SetStateAction<string | null>>;
-}
-
-const RovingFocusContext = createContext<RovingFocusContextValue | undefined>(undefined);
+import { RovingFocusContext } from './context';
 
 /* -------------------------------------------------------------------------------------------------
  * RovingFocusProvider
@@ -78,33 +70,14 @@ const RovingFocusProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
   );
 
   return (
-    <RovingFocusContext.Provider value={{ registerRef, handleKeyDown, currentId, setCurrentId }}>
-      {children}
-    </RovingFocusContext.Provider>
+    <RovingFocusContext value={{ registerRef, handleKeyDown, currentId, setCurrentId }}>{children}</RovingFocusContext>
   );
 };
 
 RovingFocusProvider.displayName = PROVIDER_NAME;
 
 /* -------------------------------------------------------------------------------------------------
- * useRovingFocus
- * -----------------------------------------------------------------------------------------------*/
-
-interface RovingFocusContextArgs {
-  scope?: string;
-}
-
-const useRovingFocus = ({ scope }: RovingFocusContextArgs): RovingFocusContextValue => {
-  const context = useContext(RovingFocusContext);
-  if (!context) {
-    throw new Error(`Items should be used within a ${scope ?? 'RovingFocusProvider'}`);
-  }
-  return context;
-};
-
-/* -------------------------------------------------------------------------------------------------
  * Export
  * -----------------------------------------------------------------------------------------------*/
 
-export { RovingFocusContext, RovingFocusProvider, useRovingFocus };
-export type { RovingFocusContextValue };
+export { RovingFocusProvider };

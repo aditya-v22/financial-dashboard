@@ -1,33 +1,14 @@
-import { forwardRef, useId } from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import React, { useId } from 'react';
+import { type VariantProps } from 'class-variance-authority';
 import { cn } from '../../../utils';
-
-const inputVariants = cva(
-  'outline-none text-[15px] data-[disabled=true]:cursor-not-allowed appearance-none group-[input]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none',
-  {
-    variants: {
-      variant: {
-        default:
-          'bg-light rounded-medium caret-primary-100 text-primary-100 ring-1 ring-primary-100 placeholder:text-primary-100/40 focus:ring-primary-600/80 data-[disabled=true]:bg-gray-100/70 data-[disabled=true]:text-gray-200 data-[invalid=true]:ring-error-500/60',
-        // TODO: add more variants
-      },
-      inputSize: {
-        default: 'h-[50px] max-h-[50px] py-4 px-5',
-        // TODO: add more sizes
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-      inputSize: 'default',
-    },
-  }
-);
+import { inputVariants } from './inputVariants';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>, VariantProps<typeof inputVariants> {
+  ref?: React.Ref<HTMLInputElement | null>;
   error?: boolean;
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+const Input: React.FC<InputProps> = (props) => {
   const { error, className, variant, inputSize, disabled, id, ...inputProps } = props;
   const uniqueId = useId();
   const inputId = id ? id : `${uniqueId}-input`;
@@ -45,12 +26,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
       title=''
       className={cn(inputVariants({ variant, inputSize }), className)}
       {...inputProps}
-      ref={ref}
     />
   );
-});
+};
 
 Input.displayName = 'Input';
 
-export { Input, inputVariants };
+export { Input };
 export type { InputProps };

@@ -9,18 +9,31 @@ type Ref<T> = React.Ref<T>;
  * @param refs - An array of refs to be merged.
  * @returns A callback ref that updates all the provided refs.
  */
-function useMergedRefs<T>(...refs: Ref<T>[]): (node: T | null) => void {
+function useMergedRefs<T>(...refs: (Ref<T> | null | undefined)[]): (node: T | null) => void {
   return useCallback(
-    (node: T | null) => {
+    (node) => {
       refs.forEach((ref) => {
         if (!ref) return;
 
         if (typeof ref === 'function') {
           ref(node);
         } else {
-          (ref as React.MutableRefObject<T | null>).current = node;
+          ref.current = node;
         }
       });
+
+      return () => {
+        // Clear all refs when the component unmounts
+        refs.forEach((ref) => {
+          if (!ref) return;
+
+          if (typeof ref === 'function') {
+            ref(null);
+          } else {
+            ref.current = null;
+          }
+        });
+      };
     },
     [refs]
   );

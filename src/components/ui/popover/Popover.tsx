@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { PopoverContext, usePopoverContext } from './context';
 import { useControllableState } from '../../../hooks/useControllableState';
@@ -49,7 +49,7 @@ const Popover: React.FC<PopoverProps> = (props) => {
     [isOpen, setOpen, triggerAnchorEl]
   );
 
-  return <PopoverContext.Provider value={popoverProviderValues}>{children}</PopoverContext.Provider>;
+  return <PopoverContext value={popoverProviderValues}>{children}</PopoverContext>;
 };
 
 Popover.displayName = POPOVER_NAME;
@@ -62,6 +62,7 @@ const POPOVER_TRIGGER_NAME = 'PopoverTrigger';
 
 interface PopoverTriggerProps extends React.HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  ref?: React.Ref<HTMLButtonElement | null>;
   disabled?: boolean;
   asChild?: boolean;
   error?: boolean;
@@ -69,7 +70,7 @@ interface PopoverTriggerProps extends React.HTMLAttributes<HTMLButtonElement> {
   showActiveState?: boolean;
 }
 
-const PopoverTrigger = forwardRef<HTMLButtonElement, PopoverTriggerProps>((props, ref) => {
+const PopoverTrigger: React.FC<PopoverTriggerProps> = (props) => {
   const { children, disabled, asChild, className, error, showActiveState, ...triggerProps } = props;
 
   const Element = asChild ? Slot : 'button';
@@ -82,6 +83,7 @@ const PopoverTrigger = forwardRef<HTMLButtonElement, PopoverTriggerProps>((props
     } else {
       context.open();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [context.isOpen]);
 
   const handleMouseDown = useCallback(
@@ -152,12 +154,11 @@ const PopoverTrigger = forwardRef<HTMLButtonElement, PopoverTriggerProps>((props
       onKeyDown={composeEventHandlers(props?.onKeyDown, handleKeyDown)}
       onFocus={composeEventHandlers(props?.onFocus, handleFocus)}
       onBlur={composeEventHandlers(props?.onBlur, handleBlur)}
-      ref={ref}
     >
       {children}
     </Element>
   );
-});
+};
 
 PopoverTrigger.displayName = POPOVER_TRIGGER_NAME;
 
@@ -169,6 +170,7 @@ const POPOVER_CONTENT_NAME = 'PopoverContent';
 
 interface PopoverContentProps {
   children: React.ReactNode;
+  ref?: React.Ref<HTMLDivElement | null>;
   asChild?: boolean;
   className?: HTMLElement['className'];
   side?: Placement;
@@ -176,11 +178,11 @@ interface PopoverContentProps {
   alignOffset?: number;
 }
 
-const PopoverContent = forwardRef<HTMLDivElement, PopoverContentProps>((props, ref) => {
+const PopoverContent: React.FC<PopoverContentProps> = (props) => {
   const { children, asChild, className, side, alignOffset, sideOffset, ...contentProps } = props;
   const popoverRef = useRef<HTMLDivElement | null>(null);
 
-  const mergedRef = useMergedRefs(popoverRef, ref);
+  const mergedRef = useMergedRefs(popoverRef, props?.ref);
   const { isOpen, close, triggerAnchorEl } = usePopoverContext();
   const Element = asChild ? Slot : 'div';
 
@@ -214,6 +216,7 @@ const PopoverContent = forwardRef<HTMLDivElement, PopoverContentProps>((props, r
         close();
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [triggerAnchorEl]
   );
 
@@ -239,7 +242,7 @@ const PopoverContent = forwardRef<HTMLDivElement, PopoverContentProps>((props, r
     </Element>,
     document.body
   );
-});
+};
 
 PopoverContent.displayName = POPOVER_CONTENT_NAME;
 
