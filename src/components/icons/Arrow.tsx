@@ -6,7 +6,7 @@ interface ArrowProps extends React.SVGProps<SVGSVGElement> {
 
 const styles = {
   left: 'rotate-90',
-  right: 'rotate-270',
+  right: '-rotate-90',
   up: 'rotate-180',
   down: 'rotate-0',
 };
