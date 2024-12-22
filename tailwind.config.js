@@ -103,6 +103,10 @@ export default {
         'credit-card': 'linear-gradient(to right, #5B5A6F, #000000)',
         'credit-card-footer': 'linear-gradient(to bottom right, #FFFFFF26, #FFFFFF00)',
       },
+
+      boxShadow: {
+        'shadow-1': '4px 4px 18px -2px rgba(231, 228, 232, 0.8)',
+      },
     },
   },
   plugins: [],
