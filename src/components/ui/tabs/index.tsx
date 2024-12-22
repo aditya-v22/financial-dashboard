@@ -111,7 +111,7 @@ const TabsTrigger: React.FC<TabsTriggerProps> = (props) => {
       disabled={disabled}
       id={buttonId}
       className={cn(
-        'group/tab relative px-4 pb-2.5 text-primary-100 font-medium transition-all hover:text-gray-950/70 focus-within:text-gray-950/70 focus-within:outline-none outline-none data-[state=active]:text-gray-950 data-[disabled]:text-gray-200 data-[disabled]:cursor-not-allowed',
+        'group/tab flex-shrink-0 relative px-4 pb-2.5 text-primary-100 font-medium transition-all hover:text-gray-950/70 focus-within:text-gray-950/70 focus-within:outline-none outline-none data-[state=active]:text-gray-950 data-[disabled]:text-gray-200 data-[disabled]:cursor-not-allowed',
         className
       )}
       {...tabsTriggerProps}
