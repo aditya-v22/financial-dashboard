@@ -232,8 +232,9 @@ const PopoverContent: React.FC<PopoverContentProps> = (props) => {
       aria-modal='true'
       aria-hidden={!isOpen}
       style={{ ...floatingStyles, width: triggerAnchorEl?.clientWidth }}
-      className={cn('absolute z-10 p-4 bg-white shadow-lg rounded-lg border border-gray-300', className, {
+      className={cn('absolute z-10', className, {
         'opacity-0 pointer-events-none': !isPositioned,
+        'p-4 bg-white shadow-lg rounded-lg border border-gray-300': !asChild,
       })}
       {...contentProps}
       ref={mergedRef}

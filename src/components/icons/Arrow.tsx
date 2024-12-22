@@ -24,7 +24,7 @@ const Arrow: React.FC<ArrowProps> = ({ direction = 'down', className, ...props }
     >
       <path
         d='M1 1L7 7L13 1'
-        stroke='#718EBF'
+        stroke='currentColor'
         strokeWidth='1.5'
       />
     </svg>

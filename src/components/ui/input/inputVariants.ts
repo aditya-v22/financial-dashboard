@@ -6,7 +6,7 @@ export const inputVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-light rounded-medium caret-primary-100 text-primary-100 ring-1 ring-primary-100 placeholder:text-primary-100/40 focus:ring-primary-600/80 data-[disabled=true]:bg-gray-100/70 data-[disabled=true]:text-gray-200 data-[invalid=true]:ring-error-500/60',
+          'bg-light rounded-medium caret-primary-100 text-primary-100 ring-1 ring-primary-100 placeholder:text-primary-100/40 hover:bg-light hover:ring-primary-600/50 focus:ring-1 focus:ring-primary-600/80 data-[disabled=true]:bg-gray-100/70 data-[disabled=true]:text-gray-200 data-[invalid=true]:ring-error-500/60',
         // TODO: add more variants
       },
       inputSize: {
