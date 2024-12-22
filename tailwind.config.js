@@ -98,6 +98,11 @@ export default {
         lato: ['Lato', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
       },
+
+      backgroundImage: {
+        'credit-card': 'linear-gradient(to right, #5B5A6F, #000000)',
+        'credit-card-footer': 'linear-gradient(to bottom right, #FFFFFF26, #FFFFFF00)',
+      },
     },
   },
   plugins: [],
