@@ -13,7 +13,6 @@ const DatePicker: React.FC<DatePickerProps> = (props) => {
 
   return (
     <DayPicker
-      autoFocus
       showOutsideDays={showOutsideDays}
       className={cn('p-3', className)}
       classNames={{
