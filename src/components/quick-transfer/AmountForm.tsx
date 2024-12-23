@@ -7,7 +7,7 @@ const AMOUNT_NAME = 'AmountForm';
 const AmountForm: React.FC = () => {
   return (
     <div className='flex justify-between gap-8 items-center'>
-      <label className='text-base text-primary-100'>Write Amount</label>
+      <label className='text-base text-primary-100 flex-shrink-0'>Write Amount</label>
 
       <div className='relative flex items-center h-[50px] w-[265px] rounded-[50px] bg-gray-200'>
         <input

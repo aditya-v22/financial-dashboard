@@ -10,7 +10,7 @@ const QuickTransfer = () => {
 
   return (
     <Card aria-labelledby={'quick-transfer-card'}>
-      <div className='flex flex-col gap-4'>
+      <div className='flex flex-col gap-6'>
         <Contacts
           selectedUser={selectedUser}
           setSelectedUser={setSelectedUser}
