@@ -2,7 +2,8 @@ import React from 'react';
 import { BellIcon, SearchIcon, SettingIcon } from '../icons';
 import { Button } from '../ui/button';
 import { FALLBACK_AVATAR } from '../../constanst/images';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { pageTitles } from './sidebarItems';
 
 const HEADER_NAME = 'Header';
 
@@ -11,6 +12,10 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
+  const location = useLocation();
+
+  const currentPageTitle = pageTitles[location.pathname as keyof typeof pageTitles];
+
   return (
     <header
       aria-label='header'
@@ -40,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
         aria-label='header title'
         className='text-[28px] font-semibold text-primary-900'
       >
-        Overview
+        {currentPageTitle}
       </h1>
 
       <div

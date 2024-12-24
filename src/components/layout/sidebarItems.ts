@@ -57,3 +57,15 @@ export const sidebarItems = [
     icon: SettingIcon,
   },
 ];
+
+export const pageTitles = {
+  '/': 'Dashboard',
+  '/transactions': 'Transactions',
+  '/accounts': 'Accounts',
+  '/investments': 'Investments',
+  '/credit-cards': 'Credit Cards',
+  '/loans': 'Loans',
+  '/services': 'Services',
+  '/my-privileges': 'My Privileges',
+  '/settings': 'Setting',
+};
