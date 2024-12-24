@@ -10,7 +10,11 @@ export const editProfileFormValidationSchema = Yup.object({
     .min(3, 'Username must be at least 3 characters')
     .max(20, 'Username cannot exceed 20 characters')
     .matches(/^[a-zA-Z0-9_]+$/, 'Username can only contain letters, numbers, and underscores'),
-  email: Yup.string().required('Email is required').email('Invalid email address'),
+  email: Yup.string()
+    .email('Invalid email format')
+    .max(254, 'Email cannot exceed 254 characters')
+    .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'Email must have a valid domain')
+    .required('Email is required'),
   password: Yup.string()
     .required('Password is required')
     .min(8, 'Password must be at least 8 characters')
