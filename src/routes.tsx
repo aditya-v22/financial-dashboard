@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteObject, useRoutes } from 'react-router-dom';
-import Layout from './components/layout';
+import { Layout } from './components/layout';
 import { PageLoader } from './components/ui/PageLoader';
 
 const Dashboard = React.lazy(() => import('./pages/Dashboard'));
