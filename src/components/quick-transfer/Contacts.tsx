@@ -1,33 +1,10 @@
+import { useCallback, useState } from 'react';
 import { FALLBACK_AVATAR } from '../../constants/images';
 import { cn } from '../../utils';
-import { Slider } from './Slider';
+import { ArrowIcon } from '../icons';
+import { quickTransferContacts } from '../../mockData/user';
 
 const CONTACTS_NAME = 'Contacts';
-
-const contacts = [
-  {
-    id: '1',
-    name: 'John Doe',
-    profilePictureUrl: 'https://randomuser.me/api/portraits/men/1.jpg',
-    type: 'CEO',
-  },
-  {
-    id: '2',
-    name: 'Lucy Kane',
-    profilePictureUrl: 'https://randomuser.me/api/portraits/women/1.jpg',
-    type: 'Clerk',
-  },
-  {
-    id: '3',
-    name: 'John Doe',
-    avatar: FALLBACK_AVATAR,
-    balance: 2500,
-  },
-  {
-    id: '4',
-    name: 'John Doe',
-  },
-];
 
 interface ContactsProps {
   selectedUser: string;
@@ -35,39 +12,52 @@ interface ContactsProps {
 }
 
 const Contacts: React.FC<ContactsProps> = ({ selectedUser, setSelectedUser }) => {
+  const [showArrow, setShowArrow] = useState(true);
+  const [usersToShow, setUsersToShow] = useState(quickTransferContacts.slice(0, 3));
+
+  const showAllContacts = useCallback(() => {
+    setUsersToShow(quickTransferContacts);
+    setShowArrow(false);
+  }, []);
+
   return (
     <div>
-      <div className='max-w-[350px]'>
-        <Slider totalSlides={9}>
+      <div className='relative transition-all flex items-center gap-8 w-full overflow-x-auto overflow-y-hidden scrollbar'>
+        {usersToShow.map((contact) => (
           <div
+            key={contact.id}
             role='button'
-            aria-describedby='contact-1'
-            onClick={() => setSelectedUser('1')}
-            className='!flex flex-col items-center gap-2 md:gap-4 cursor-pointer hover:opacity-70'
+            aria-describedby={`Quick Transfer User- ${contact.name}`}
+            data-selected={selectedUser === contact.id}
+            onClick={() => setSelectedUser(contact.id)}
+            className='group transition-all !flex flex-shrink-0 flex-col items-center gap-2 md:gap-4 pb-1.5 cursor-pointer hover:opacity-70'
           >
             <img
-              src={FALLBACK_AVATAR}
+              src={contact.profilePictureUrl || FALLBACK_AVATAR}
               className='w-[50px] h-[50px] md:w-[70px] md:h-[70px] rounded-full object-cover'
             />
 
             <div>
-              <h3
-                className={cn('text-xs md:text-base text-gray-950 transition-all', {
-                  'font-bold': selectedUser === '1',
-                })}
-              >
-                John Doe
+              <h3 className={'text-xs md:text-base text-gray-950 transition-all group-data-[selected=true]:font-bold'}>
+                {contact.name}
               </h3>
-              <p
-                className={cn('text-center text-xs md:text-[15px] text-primary-100', {
-                  'font-bold': selectedUser === '1',
-                })}
-              >
-                CEO
+              <p className={'text-center text-xs md:text-[15px] text-primary-100 group-data-[selected=true]:font-bold'}>
+                {contact.type}
               </p>
             </div>
           </div>
-        </Slider>
+        ))}
+
+        {showArrow && (
+          <button
+            className={cn(
+              'absolute right-2 transition-all z-10 flex-shrink-0 h-10 w-10 md:h-[50px] md:w-[50px] flex items-center justify-center bg-light shadow-shadow-1 text-primary-100 rounded-full'
+            )}
+            onClick={showAllContacts}
+          >
+            <ArrowIcon direction={'right'} />
+          </button>
+        )}
       </div>
     </div>
   );

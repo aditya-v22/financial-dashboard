@@ -26,8 +26,6 @@
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.0.2",
-    "react-slick": "^0.30.3",
-    "slick-carousel": "^1.8.1",
     "tailwind-merge": "^2.5.5",
     "yup": "^1.6.1"
   },
@@ -36,7 +34,6 @@
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "@types/react-router-dom": "^5.3.3",
-    "@types/react-slick": "^0.23.13",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.15.0",

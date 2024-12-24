@@ -1,9 +1,0 @@
-.slick-track {
-  margin: unset !important;
-}
-
-.slick-slide {
-  display: flex !important;
-  justify-content: center;
-  flex-shrink: 0;
-}
