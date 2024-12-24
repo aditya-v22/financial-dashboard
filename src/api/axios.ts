@@ -2,7 +2,12 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { mockUserData } from '../mockData/user';
 import { mockCards } from '../mockData/card';
-import { mockRecentTransactions } from '../mockData/transactions';
+import {
+  mockBalanceHistory,
+  mockExpenseStatistics,
+  mockRecentTransactions,
+  mockWeeklyTransactions,
+} from '../mockData/transactions';
 
 // Create an instance of Axios
 const axiosInstance = axios.create({
@@ -30,5 +35,8 @@ mock.onGet('/my-cards').reply(200, mockCards);
 
 // Trasactions
 mock.onGet('/recent-transactions').reply(200, mockRecentTransactions);
+mock.onGet('/weekly-activity').reply(200, mockWeeklyTransactions);
+mock.onGet('/balance-history').reply(200, mockBalanceHistory);
+mock.onGet('/expense-statistics').reply(200, mockExpenseStatistics);
 
 export default axiosInstance;

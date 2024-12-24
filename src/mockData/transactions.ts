@@ -26,3 +26,12 @@ export const mockRecentTransactions: RecentTransaction[] = [
     transactionFlow: TransactionFlowType.OUT,
   },
 ];
+
+export const mockWeeklyTransactions = {
+  deposit: [50, 460, 350, 400, 180, 290, 120],
+  withdraw: [30, 500, 130, 170, 140, 100, 420],
+};
+
+export const mockBalanceHistory = [300, 50, 550, 400, 780, 500, 200];
+
+export const mockExpenseStatistics = [15, 35, 20, 30];
