@@ -36,6 +36,7 @@ const loadingVariants = cva('animate-spin rounded-full border-2 !border-t-transp
     variant: {
       primary: 'border-light',
       // TODO: Update styles for below variants
+      ghost: 'border-primary-900',
       secondary: 'border-gray-500',
       danger: 'border-red-500',
       outline: 'border-gray-300',
