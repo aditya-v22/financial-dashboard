@@ -8,13 +8,15 @@ type SidebarItemProps = {
   icon: React.ReactNode;
   href: string;
   isDisabled?: boolean;
+  onClick?: () => void;
 };
 
-const SidebarItem: React.FC<SidebarItemProps> = ({ label, icon, href, isDisabled }) => {
+const SidebarItem: React.FC<SidebarItemProps> = ({ label, icon, href, isDisabled, onClick }) => {
   return (
     <NavLink
       to={href}
       aria-disabled={isDisabled}
+      onClick={onClick}
       className={({ isActive }) =>
         cn(
           'group relative h-[60px] pl-11 pr-4 py-2 flex items-center gap-4 text-lg font-medium text-left w-full text-gray-200 hover:text-gray-500 transition-all',
