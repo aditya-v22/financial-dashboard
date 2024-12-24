@@ -30,13 +30,13 @@ This application provide you a financial dashboard application with multiple vie
 - **Routing**: React Router
 - **Form Management & Validation**: Formik & Yup
 - **Mock API**: Axios with Mock Adapter
-- **Version Control**: Git
+- **Version Control**: Git, Github
 
 ---
 
 ## **Features**
 ### Functional:
-1. **Responsive Design**: Fully adapts to mobile, tablet, and desktop devices.
+1. **Responsive Design**: Fully adapts to mobile, tablet, and laptop devices.
 2. **Data Visualization**: Dynamic and interactive charts using Chart.js.
 3. **Interactive Elements**:
    - Hover effects on buttons and actionable items.
@@ -58,7 +58,7 @@ This application provide you a financial dashboard application with multiple vie
 ---
 
 ## **Assumptions**
-- **Mock Data**: All API endpoints are mocked for user information, card details, transaction history, and chart data.
+- **Mock Data**: All API endpoints are mocked using `axios-mock-adapter` for user information, card details, transaction history, and chart data. As I intercept the API request with mock adapter we can't see API call in `Networks` tab, but it's working in the code.
 - **Data**: Predefined sample data is used to populate the dashboard.
 - **Responsiveness**: Breakpoints are tailored for mobile (≤640px), tablet (641px–1024px), and desktop (≥1025px).
 - **Quick Transfer User Scroll Arrow Button**: In the design, the "Quick Transfer Users" section only has one arrow button (on the right side) and no space left on the left. Based on this observation, I made the following decision:
