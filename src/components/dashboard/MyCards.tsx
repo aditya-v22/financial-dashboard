@@ -44,9 +44,10 @@ const MyCards = () => {
   return (
     <Section
       title='My Cards'
-      headerProps={{ showButton: true, buttonText: 'See All' }}
+      className='relative'
+      headerProps={{ showButton: true, buttonText: 'See All', ButtonProps: { className: 'absolute right-0' } }}
     >
-      <div className='flex gap-7'>{renderCards}</div>
+      <div className='flex gap-7 overflow-x-auto max-md:pb-1.5 overflow-y-hidden scrollbar'>{renderCards}</div>
     </Section>
   );
 };

@@ -13,7 +13,7 @@ type CustomArrowProps = SlickArrowProps & {
 const CustomArrow: React.FC<CustomArrowProps> = ({ onClick, direction }) => {
   return (
     <button
-      className={`absolute z-10 h-[50px] w-[50px] flex items-center justify-center bg-light shadow-shadow-1 text-primary-100 rounded-full top-1/2 transform -translate-y-1/2 ${
+      className={`absolute z-10 h-10 w-10 md:h-[50px] md:w-[50px] flex items-center justify-center bg-light shadow-shadow-1 text-primary-100 rounded-full top-1/2 transform -translate-y-1/2 ${
         direction === 'left' ? '-left-[50px]' : '-right-[50px]'
       }`}
       onClick={onClick}

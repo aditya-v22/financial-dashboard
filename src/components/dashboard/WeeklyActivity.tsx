@@ -37,6 +37,7 @@ const WeeklyActivity: React.FC = () => {
         depositData={weeklyActivity.deposit}
         withdrawData={weeklyActivity.withdraw}
         height={226}
+        className='h-[204px] lg:h-[226px]'
       />
     );
   }, [weeklyActivity, errorWhileFetchingWeeklyActivity, loadingWeeklyActivity]);
@@ -45,18 +46,18 @@ const WeeklyActivity: React.FC = () => {
     <Section title='Weekly Activity'>
       <Card
         aria-labelledby='bar-chart'
-        className='max-h-[322px] h-[322px] pt-6 pb-4'
+        className='max-h-[254px] h-[254px] md:max-h-[322px] md:h-[322px] p-4 md:px-[30px] md:pt-6 md:pb-4'
       >
-        <div className='flex flex-col gap-6'>
+        <div className='flex flex-col gap-1 md:gap-6'>
           <div className='flex justify-end items-center gap-6'>
             <div className='flex gap-2 items-center'>
-              <div className='w-[15px] h-[15px] bg-primary-600 rounded-full' />
-              <label className='text-[15px] text-primary-100'>Deposit</label>
+              <div className='w-3 h-3 md:w-[15px] md:h-[15px] bg-primary-600 rounded-full' />
+              <label className='text-xs md:text-[15px] text-primary-100'>Deposit</label>
             </div>
 
             <div className='flex gap-2 items-center'>
-              <div className='w-[15px] h-[15px] bg-gray-950 rounded-full' />
-              <label className='text-[15px] text-primary-100'>Withdraw</label>
+              <div className='w-3 h-3 md:w-[15px] md:h-[15px] bg-gray-950 rounded-full' />
+              <label className='text-xs md:text-[15px] text-primary-100'>Withdraw</label>
             </div>
           </div>
 

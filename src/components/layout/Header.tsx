@@ -7,6 +7,7 @@ import { pageTitles } from './sidebarItems';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { GlobalSearch } from './GlobalSearch';
+import { cn } from '../../utils';
 
 const HEADER_NAME = 'Header';
 
@@ -23,7 +24,10 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
   return (
     <header
       aria-label='header'
-      className='bg-light min-h-[140px] md:min-h-[101px] w-full border-b border-primary-200 flex md:flex-row flex-col justify-between items-center p-6 lg:px-10 lg:sticky lg:top-0 z-50'
+      className={cn(
+        'bg-light min-h-[140px] md:min-h-[101px] w-full border-b border-primary-200 flex md:flex-row flex-col justify-between items-center p-6 lg:px-10 lg:sticky lg:top-0 z-50',
+        { 'max-md:border-b-0': location.pathname === '/' }
+      )}
     >
       <div className='w-full flex justify-between items-center'>
         {/* Menu button */}

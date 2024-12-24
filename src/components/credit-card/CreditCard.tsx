@@ -20,11 +20,11 @@ const CreditCard: React.FC<CreditCardProps> = (props) => {
 
   return (
     <div className={cn(creditCardVariants({ variant }))}>
-      <div className='px-6 pt-4 h-[165px] w-full flex flex-col gap-6'>
+      <div className='p-5 pt-3 md:px-6 md:pt-4 h-[121px] md:h-[165px] w-full flex flex-col gap-2 md:gap-6'>
         <div className='flex items-center justify-between'>
           <div>
             <label className='label'>Balance</label>
-            <p className='description !text-xl !leading-[22px]'>${balance.toLocaleString('en-US')}</p>
+            <p className='description !text-base md:!text-xl !leading-[22px]'>${balance.toLocaleString('en-US')}</p>
           </div>
           <ChipIcon darkImage={isSecondaryVariant} />
         </div>
@@ -47,23 +47,28 @@ const CreditCard: React.FC<CreditCardProps> = (props) => {
       {/* footer */}
       <div
         className={cn(
-          'w-full flex items-center justify-between rounded-b-large border-t border-primary-100 py-[19px] px-6',
+          'w-full flex items-center justify-between rounded-b-large border-t border-primary-100 py-2 px-5 md:py-[19px] md:px-6',
           {
-            'bg-credit-card-footer border-none py-5': isSecondaryVariant,
+            'bg-credit-card-footer border-none py-3 md:py-5': isSecondaryVariant,
           }
         )}
       >
-        <label className='description !text-[22px] leading-[26px]'>{createMaskedString(cardNumber, '**** ****')}</label>
+        <label className='description !text-[15px] md:!text-[22px] leading-[26px]'>
+          {createMaskedString(cardNumber, '**** ****')}
+        </label>
 
         <div
-          className={cn('relative h-[30px] w-[30px] bg-gray-600/50 rounded-full', {
+          className={cn('relative h-[18px] w-[18px] md:h-[30px] md:w-[30px] bg-gray-600/50 rounded-full', {
             'bg-light/50': isSecondaryVariant,
           })}
         >
           <div
-            className={cn('absolute -left-[15px] h-[30px] w-[30px] bg-gray-600/50 rounded-full', {
-              'bg-light/50': isSecondaryVariant,
-            })}
+            className={cn(
+              'absolute -left-[9px] md:-left-[15px] h-[18px] w-[18px] md:h-[30px] md:w-[30px] bg-gray-600/50 rounded-full',
+              {
+                'bg-light/50': isSecondaryVariant,
+              }
+            )}
           ></div>
         </div>
       </div>

@@ -35,7 +35,7 @@ const ExpensesStatistics: React.FC = () => {
     return (
       <ExpenseStatisticsChart
         data={expenseStatistics}
-        className='absolute -top-2'
+        className='absolute max-h-[500px] -top-4 md:-top-2'
       />
     );
   }, [expenseStatistics, errorWhileFetchingExpenseStatistics, loadingExpenseStatistics]);
@@ -44,7 +44,7 @@ const ExpensesStatistics: React.FC = () => {
     <Section title='Expenses Statistics'>
       <Card
         aria-labelledby='bar-chart'
-        className='max-h-[322px] h-[322px] p-0'
+        className='h-[322px] max-h-[322px] md:h-[500px] md:max-h-full lg:max-h-[322px] lg:h-[322px] p-0'
       >
         <div className='relative h-full w-full'>{renderExpensesStatistics}</div>
       </Card>

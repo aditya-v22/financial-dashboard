@@ -19,7 +19,7 @@ const TransactionIcon: React.FC<TransactionIconProps> = ({ platformType }) => {
 
   return (
     <div className={paymentPlatformVariants({ platformType })}>
-      <Icon />
+      <Icon className='w-6 h-6 md:w-7 md:h-7' />
     </div>
   );
 };
@@ -45,17 +45,17 @@ const TransactionItem: React.FC<TransactionItemProps> = (props) => {
       <div className='flex items-center gap-4'>
         <TransactionIcon platformType={platformType} />
 
-        <div className='flex flex-col max-w-48'>
-          <label className='text-base text-gray-950 font-medium truncate'>
-            {description || isAmountIn ? 'Money Received' : 'Money Sent'}
+        <div className='flex flex-col max-w-28 md:max-w-48'>
+          <label className='text-sm md:text-base text-gray-950 font-medium truncate'>
+            {description || (isAmountIn ? 'Money Received' : 'Money Sent')}
           </label>
-          <label className='text-primary-100 text-[15px]'>{dayjs(date).format('DD MMMM YYYY')}</label>
+          <label className='text-primary-100 text-xs md:text-[15px]'>{dayjs(date).format('DD MMMM YYYY')}</label>
         </div>
       </div>
 
       <div>
         <label
-          className={cn('font-medium', {
+          className={cn('font-medium text-xs md:text-base', {
             'text-success-400': isAmountIn,
             'text-error-500': !isAmountIn,
           })}

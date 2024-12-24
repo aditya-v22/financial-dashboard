@@ -43,8 +43,8 @@ const Layout: React.FC = () => {
           {/* Sidebar */}
           <div
             className={cn(
-              'fixed top-0 left-0 max-sm:min-w-full md:min-w-[350px] lg:min-w-[250px] max-h-[var(--app-root-winh)] overflow-auto bg-light transform transition-transform duration-300 ease-in-out z-[51] lg:translate-x-0',
-              'lg:sticky md:top-0 md:min-h-[var(--app-root-winh)] md:border-r lg:border-primary-200',
+              'fixed top-0 left-0 max-sm:min-w-full md:min-w-[350px] lg:min-w-[250px] max-h-[var(--app-root-winh)] overflow-auto scrollbar bg-light transform transition-transform duration-300 ease-in-out z-[51] xl:translate-x-0',
+              'xl:sticky xl:top-0 min-h-[var(--app-root-winh)] md:border-r md:border-primary-200',
               {
                 '-translate-x-full': !isSidebarOpen, // Hidden state for small screens
                 '!translate-x-0': isSidebarOpen, // Visible state for small screens

@@ -7,7 +7,7 @@ const DASHBOARD_QUICK_TRANSFER_NAME = 'DashboardQuickTransfer';
 const DashboardQuickTransfer: React.FC = () => {
   return (
     <Section title='Quick Transfer'>
-      <div className='h-[276px]'>
+      <div className='h-[195px] md:h-[276px]'>
         <QuickTransfer />
       </div>
     </Section>
