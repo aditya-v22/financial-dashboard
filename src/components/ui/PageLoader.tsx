@@ -6,7 +6,7 @@ const Loader: React.FC = () => {
 
 export const PageLoader: React.FC = () => {
   return (
-    <div className='flex items-center justify-center min-h-[calc(var(--app-root-winh)_-_149px)] max-md:min-h-[calc(var(--app-root-winh)_-_170px)]'>
+    <div className='flex items-center justify-center w-full min-h-[calc(var(--app-root-winh)_-_149px)] max-md:min-h-[calc(var(--app-root-winh)_-_170px)]'>
       <Loader />
     </div>
   );
