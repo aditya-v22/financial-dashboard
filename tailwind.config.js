@@ -107,6 +107,11 @@ export default {
       boxShadow: {
         'shadow-1': '4px 4px 18px -2px rgba(231, 228, 232, 0.8)',
       },
+
+      screens: {
+        'mini-laptop': '1260px',
+        xl: '1440px',
+      },
     },
   },
   plugins: [],

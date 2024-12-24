@@ -13,19 +13,19 @@ registerChartComponents();
 
 const Dashboard: React.FC = () => {
   return (
-    <div className='mx-10 my-[30px]'>
+    <div className='min-h-full py-2 px-4 md:px-10 md:py-[30px] bg-light lg:bg-gray-50'>
       <div className='grid gap-8'>
-        <div className='grid grid-cols-[1fr_350px] gap-8'>
+        <div className='grid grid-cols-1 mini-laptop:grid-cols-[1fr_350px] gap-8'>
           <MyCards />
           <DashboardRecentTransaction />
         </div>
 
-        <div className='grid grid-cols-[1fr_350px] gap-8'>
+        <div className='grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-8'>
           <WeeklyActivity />
           <ExpensesStatistics />
         </div>
 
-        <div className='grid grid-cols-[445px_1fr] gap-8'>
+        <div className='grid grid-cols-1 lg:grid-cols-[445px_1fr] gap-8'>
           <DashboardQuickTransfer />
           <BalanceHistory />
         </div>

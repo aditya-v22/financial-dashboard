@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 
 export const paymentPlatformVariants = cva(
-  'h-[55px] w-[55px] flex justify-center items-center rounded-full flex-shrink-0',
+  'w-[50px] h-[50px] md:h-[55px] md:w-[55px] flex justify-center items-center rounded-full flex-shrink-0',
   {
     variants: {
       platformType: {

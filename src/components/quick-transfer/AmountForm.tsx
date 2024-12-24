@@ -7,9 +7,9 @@ const AMOUNT_NAME = 'AmountForm';
 const AmountForm: React.FC = () => {
   return (
     <div className='flex justify-between gap-8 items-center'>
-      <label className='text-base text-primary-100 flex-shrink-0'>Write Amount</label>
+      <label className='text-xs md:text-base text-primary-100 flex-shrink-0'>Write Amount</label>
 
-      <div className='relative flex items-center h-[50px] w-[265px] rounded-[50px] bg-gray-200'>
+      <div className='relative flex items-center h-10 md:h-[50px] w-[265px] rounded-[50px] bg-gray-200'>
         <input
           type='number'
           min={0}
@@ -19,9 +19,9 @@ const AmountForm: React.FC = () => {
         />
         <Button
           size='lg'
-          className='absolute right-0 !rounded-[50px] px-0 !w-[125px] ring-inset max-h-[50px] ring-gray-950'
+          className='absolute right-0 !rounded-[50px] px-0 !w-[100px] md:!w-[125px] ring-inset max-h-10 md:max-h-[50px] ring-gray-950'
         >
-          Send <SendIcon />
+          Send <SendIcon className='h-3.5 w-3.5 md:h-5 md:w-5' />
         </Button>
       </div>
     </div>

@@ -2,6 +2,13 @@ import React from 'react';
 import { RouteObject, useRoutes } from 'react-router-dom';
 import { Layout } from './components/layout';
 import { PageLoader } from './components/ui/PageLoader';
+import Transactions from './pages/Transactions';
+import Accounts from './pages/Accounts';
+import Investments from './pages/Investment';
+import CreditCards from './pages/CreditCards';
+import Loans from './pages/Loans';
+import Services from './pages/Services';
+import MyPrivileges from './pages/MyPrivileges';
 
 const Dashboard = React.lazy(() => import('./pages/Dashboard'));
 const Settings = React.lazy(() => import('./pages/Settings'));
@@ -29,6 +36,62 @@ const routes: RouteObject[] = [
         element: (
           <WithSuspense>
             <Dashboard />
+          </WithSuspense>
+        ),
+      },
+      {
+        path: 'transactions',
+        element: (
+          <WithSuspense>
+            <Transactions />
+          </WithSuspense>
+        ),
+      },
+      {
+        path: 'accounts',
+        element: (
+          <WithSuspense>
+            <Accounts />
+          </WithSuspense>
+        ),
+      },
+      {
+        path: 'investments',
+        element: (
+          <WithSuspense>
+            <Investments />
+          </WithSuspense>
+        ),
+      },
+      {
+        path: 'credit-cards',
+        element: (
+          <WithSuspense>
+            <CreditCards />
+          </WithSuspense>
+        ),
+      },
+      {
+        path: 'loans',
+        element: (
+          <WithSuspense>
+            <Loans />
+          </WithSuspense>
+        ),
+      },
+      {
+        path: 'services',
+        element: (
+          <WithSuspense>
+            <Services />
+          </WithSuspense>
+        ),
+      },
+      {
+        path: 'my-privileges',
+        element: (
+          <WithSuspense>
+            <MyPrivileges />
           </WithSuspense>
         ),
       },

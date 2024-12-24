@@ -39,7 +39,7 @@ const BalanceHistory: React.FC = () => {
     <Section title='Balance History'>
       <Card
         aria-labelledby='bar-chart'
-        className='max-h-[276px] h-[276px]'
+        className='h-[223px] max-h-[223px] md:max-h-[276px] md:h-[276px] p-4 max-md:mb-4 md:p-[30px]'
       >
         <div className='h-full w-full'>{renderBalanceHistory}</div>
       </Card>

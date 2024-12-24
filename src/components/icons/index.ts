@@ -13,6 +13,7 @@ export { ToolsIcon } from './Tools';
 export { SettingIcon } from './Setting';
 export { SearchIcon } from './Search';
 export { BellIcon } from './Bell';
+export { XIcon } from './X';
 
 export type { ArrowIconProps } from './Arrow';
 export type { PencilIconProps } from './Pencil';
@@ -35,3 +36,4 @@ export type { ToolsIconProps } from './Tools';
 export type { SettingIconProps } from './Setting';
 export type { SearchIconProps } from './Search';
 export type { BellIconProps } from './Bell';
+export type { XIconProps } from './X';

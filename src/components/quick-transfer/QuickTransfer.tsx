@@ -9,7 +9,10 @@ const QuickTransfer = () => {
   const [selectedUser, setSelectedUser] = React.useState('');
 
   return (
-    <Card aria-labelledby={'quick-transfer-card'}>
+    <Card
+      aria-labelledby={'quick-transfer-card'}
+      className='p-4 md:p-[30px]'
+    >
       <div className='flex flex-col gap-6'>
         <Contacts
           selectedUser={selectedUser}

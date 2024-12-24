@@ -18,18 +18,26 @@ const Contacts: React.FC<ContactsProps> = ({ selectedUser, setSelectedUser }) =>
             role='button'
             aria-describedby='contact-1'
             onClick={() => setSelectedUser('1')}
-            className='!flex flex-col items-center gap-4 cursor-pointer hover:opacity-70'
+            className='!flex flex-col items-center gap-2 md:gap-4 cursor-pointer hover:opacity-70'
           >
             <img
               src={FALLBACK_AVATAR}
-              className='w-[70px] h-[70px] rounded-full object-cover'
+              className='w-[50px] h-[50px] md:w-[70px] md:h-[70px] rounded-full object-cover'
             />
 
             <div>
-              <h3 className={cn('text-base text-gray-950 transition-all', { 'font-bold': selectedUser === '1' })}>
+              <h3
+                className={cn('text-xs md:text-base text-gray-950 transition-all', {
+                  'font-bold': selectedUser === '1',
+                })}
+              >
                 John Doe
               </h3>
-              <p className={cn('text-center text-[15px] text-primary-100', { 'font-bold': selectedUser === '1' })}>
+              <p
+                className={cn('text-center text-xs md:text-[15px] text-primary-100', {
+                  'font-bold': selectedUser === '1',
+                })}
+              >
                 CEO
               </p>
             </div>
