@@ -13,7 +13,7 @@ const TransferMoney: React.FC<TransferMoneyProps> = ({ className, ...props }) =>
       xmlns='http://www.w3.org/2000/svg'
       {...props}
     >
-      <g clip-path='url(#clip0_14_1882)'>
+      <g clipPath='url(#clip0_14_1882)'>
         <path
           d='M5.20834 22.9166C5.20899 23.469 5.42869 23.9985 5.81925 24.3891C6.20981 24.7796 6.73934 24.9993 7.29167 25H17.7083C18.2607 24.9993 18.7902 24.7796 19.1808 24.3891C19.5713 23.9985 19.791 23.469 19.7917 22.9166V22.0052H5.20834V22.9166Z'
           fill='currentColor'
