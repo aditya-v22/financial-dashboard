@@ -43,7 +43,7 @@ const Layout: React.FC = () => {
           {/* Sidebar */}
           <div
             className={cn(
-              'fixed top-0 left-0 max-sm:min-w-full md:min-w-[350px] lg:min-w-[250px] max-h-[var(--app-root-winh)] overflow-auto scrollbar bg-light transform transition-transform duration-300 ease-in-out z-[51] xl:translate-x-0',
+              'fixed top-0 left-0 max-sm:min-w-full md:min-w-[350px] xl:min-w-[250px] max-h-[var(--app-root-winh)] bg-light transform transition-transform duration-300 ease-in-out z-[51] xl:translate-x-0',
               'xl:sticky xl:top-0 min-h-[var(--app-root-winh)] md:border-r md:border-primary-200',
               {
                 '-translate-x-full': !isSidebarOpen, // Hidden state for small screens
@@ -62,13 +62,13 @@ const Layout: React.FC = () => {
 
               <Button
                 onClick={() => setIsSidebarOpen(false)}
-                className='lg:hidden h-10 w-10 mr-6 bg-light p-0 ring-0 hover:bg-transparent hover:ring-0 focus-visible:ring-primary-900'
+                className='xl:hidden h-10 w-10 mr-6 bg-light p-0 ring-0 hover:bg-transparent hover:ring-0 focus-visible:ring-primary-900'
               >
                 <XIcon className=' text-primary-900 h-8 w-8' />
               </Button>
             </div>
 
-            <div className='space-y-1 mt-2.5'>
+            <div className='space-y-1 mt-2.5 sticky pb-10 top-0 max-h-[calc(var(--app-root-winh)-100px)] overflow-auto scrollbar'>
               {sidebarItems.map((item) => (
                 <SidebarItem
                   key={item.label}

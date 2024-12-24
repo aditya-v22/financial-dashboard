@@ -7,7 +7,6 @@ import { pageTitles } from './sidebarItems';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { GlobalSearch } from './GlobalSearch';
-import { cn } from '../../utils';
 
 const HEADER_NAME = 'Header';
 
@@ -28,11 +27,11 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
         'bg-light min-h-[140px] md:min-h-[101px] w-full border-b border-primary-200 flex md:flex-row flex-col justify-between items-center p-6 lg:px-10 lg:sticky lg:top-0 z-50 max-lg:border-b-0'
       }
     >
-      <div className='w-full flex justify-between items-center'>
+      <div className='w-full flex max-md:justify-between items-center'>
         {/* Menu button */}
         <button
           aria-label='toggle sidebar'
-          className='lg:hidden text-primary-900 focus:outline-none'
+          className='xl:hidden text-primary-900 focus:outline-none'
           onClick={toggleSidebar}
         >
           <svg
@@ -53,12 +52,12 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
         {/* Header title */}
         <h1
           aria-label='header title'
-          className='text-xl items-start md:text-[28px] font-semibold text-primary-900'
+          className='text-xl max-xl:ml-5 md:flex-grow items-start md:text-[28px] font-semibold text-primary-900 transition-all'
         >
           {currentPageTitle}
         </h1>
         {/* Right Header actions */}
-        <div className='flex items-center gap-2.5'>
+        <div className='flex self-end items-center gap-2.5'>
           <GlobalSearch className='hidden md:flex' />
 
           <Link

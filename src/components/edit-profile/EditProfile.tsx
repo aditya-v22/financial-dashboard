@@ -23,7 +23,7 @@ const EditProfile = () => {
   };
 
   return (
-    <div className='pt-8 pl-0 md:pl-8 w-full'>
+    <div className='pt-8 pl-0 lg:pl-8 w-full'>
       <Formik<EditProfileFormikForm>
         enableReinitialize
         initialValues={user || editProfileFormInitialValues}
