@@ -7,7 +7,7 @@ import { UserInput } from '../../types/user';
 import { EditProfileFormikForm } from './types';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store/store';
-import { updateUser } from '../../features/userSlice';
+import { updateUser } from '../../store/slices/userSlice';
 
 const EDIT_PROFILE_NAME = 'EditProfile';
 

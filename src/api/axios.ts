@@ -1,6 +1,6 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { mockUserData } from './data/user';
+import { mockUserData } from '../mockData/user';
 
 // Create an instance of Axios
 const axiosInstance = axios.create({

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axiosInstance from '../mocks/axios';
-import { User, UserInput } from '../types/user';
+import axiosInstance from '../../api/axios';
+import { User, UserInput } from '../../types/user';
 
 interface UserState {
   loading: boolean;

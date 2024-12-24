@@ -6,7 +6,7 @@ import { SoarLogo } from '../icons';
 import { sidebarItems } from './sidebarItems';
 import { Header } from './Header';
 import { SidebarItem } from './SidebarItem';
-import { fetchUser } from '../../features/userSlice';
+import { fetchUser } from '../../store/slices/userSlice';
 import { PageLoader } from '../ui/PageLoader';
 import { AppDispatch, RootState } from '../../store/store';
 
