@@ -4,7 +4,7 @@ import { CardsIcon, MoneyWithRingIcon, PaypalIcon } from '../icons';
 import dayjs from 'dayjs';
 import { cn } from '../../utils';
 import { paymentPlatformVariants } from './transactionVariants';
-import { TransactionFlowType, TransactionPlatformType } from './types';
+import { TransactionFlowType, TransactionPlatformType } from '../../types/transactions';
 
 const IconsMapping = {
   card: CardsIcon,
@@ -60,7 +60,7 @@ const TransactionItem: React.FC<TransactionItemProps> = (props) => {
             'text-error-500': !isAmountIn,
           })}
         >
-          {isAmountIn ? `+$${amount}` : `-$${amount}`}
+          {isAmountIn ? `+$${amount.toLocaleString('en-US')}` : `-$${amount.toLocaleString('en-US')}`}
         </label>
       </div>
     </li>
