@@ -1,6 +1,7 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { mockUserData } from '../mockData/user';
+import { mockCards } from '../mockData/card';
 
 // Create an instance of Axios
 const axiosInstance = axios.create({
@@ -12,6 +13,8 @@ const axiosInstance = axios.create({
 const mock = new MockAdapter(axiosInstance);
 
 // Setup mock responses
+
+// User
 mock.onGet('/user').reply(200, {
   user: mockUserData,
 });
@@ -20,5 +23,8 @@ mock.onPut('/user').reply((config) => {
   const updatedUser = JSON.parse(config.data);
   return [200, { ...updatedUser }];
 });
+
+// Cards
+mock.onGet('/my-cards').reply(200, mockCards);
 
 export default axiosInstance;
