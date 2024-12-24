@@ -109,6 +109,7 @@ export default {
       },
 
       screens: {
+        'mini-laptop': '1260px',
         xl: '1440px',
       },
     },
