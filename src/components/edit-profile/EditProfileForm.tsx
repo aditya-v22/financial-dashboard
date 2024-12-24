@@ -8,7 +8,7 @@ const EDIT_PROFILE_FORM_NAME = 'EditProfileForm';
 
 interface EditProfileFormProps {
   isLoading: boolean;
-  apiError?: string;
+  apiError: string | null;
 }
 
 const EditProfileForm: React.FC<EditProfileFormProps> = ({ isLoading, apiError }) => {

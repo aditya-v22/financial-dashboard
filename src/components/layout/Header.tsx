@@ -4,6 +4,8 @@ import { Button } from '../ui/button';
 import { FALLBACK_AVATAR } from '../../constanst/images';
 import { Link, useLocation } from 'react-router-dom';
 import { pageTitles } from './sidebarItems';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 
 const HEADER_NAME = 'Header';
 
@@ -13,6 +15,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
   const location = useLocation();
+  const { user } = useSelector((state: RootState) => state.user);
 
   const currentPageTitle = pageTitles[location.pathname as keyof typeof pageTitles];
 
@@ -79,7 +82,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
 
         <img
           aria-label='user avatar'
-          src={FALLBACK_AVATAR}
+          src={user?.profilePictureUrl || FALLBACK_AVATAR}
           className='w-[60px] h-[60px] rounded-full'
         />
       </div>

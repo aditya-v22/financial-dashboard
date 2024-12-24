@@ -1,11 +1,46 @@
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Section } from './Section';
 import Card from '../ui/Card';
 import { WeeklyActivityChart } from '../charts/weekly-activity';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../store/store';
+import { fetchWeeklyActivity } from '../../store/slices/graphDataSlice';
+import Loader from '../ui/PageLoader';
 
 const WEEKLY_ACTIVITY_NAME = 'WeeklyActivity';
 
 const WeeklyActivity: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { weeklyActivity, errorWhileFetchingWeeklyActivity, loadingWeeklyActivity } = useSelector(
+    (state: RootState) => state.graphData
+  );
+
+  useEffect(() => {
+    dispatch(fetchWeeklyActivity());
+  }, [dispatch]);
+
+  const renderWeeklyActivity = useMemo(() => {
+    if (loadingWeeklyActivity) {
+      return (
+        <div className='w-full min-h-32 h-full flex items-center justify-center'>
+          <Loader />
+        </div>
+      );
+    }
+
+    if (errorWhileFetchingWeeklyActivity) {
+      return <p>{errorWhileFetchingWeeklyActivity}</p>;
+    }
+
+    return (
+      <WeeklyActivityChart
+        depositData={weeklyActivity.deposit}
+        withdrawData={weeklyActivity.withdraw}
+        height={226}
+      />
+    );
+  }, [weeklyActivity, errorWhileFetchingWeeklyActivity, loadingWeeklyActivity]);
+
   return (
     <Section title='Weekly Activity'>
       <Card
@@ -25,13 +60,7 @@ const WeeklyActivity: React.FC = () => {
             </div>
           </div>
 
-          <div className='w-full h-full'>
-            <WeeklyActivityChart
-              depositData={[50, 460, 350, 200, 180, 90, 120]}
-              withdrawData={[30, 500, 130, 170, 140, 70, 420]}
-              height={226}
-            />
-          </div>
+          <div className='w-full h-full'>{renderWeeklyActivity}</div>
         </div>
       </Card>
     </Section>

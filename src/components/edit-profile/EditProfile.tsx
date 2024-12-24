@@ -1,27 +1,32 @@
-import { useState, useTransition } from 'react';
+import { useTransition } from 'react';
 import { Form, Formik } from 'formik';
 import { editProfileFormValidationSchema } from './validation';
 import { EditProfileForm } from './EditProfileForm';
 import { editProfileFormInitialValues } from './formFields';
-import { EditProfileInput } from './types';
+import { UserInput } from '../../types/user';
+import { EditProfileFormikForm } from './types';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../store/store';
+import { updateUser } from '../../store/slices/userSlice';
 
 const EDIT_PROFILE_NAME = 'EditProfile';
 
 const EditProfile = () => {
   const [isLoading, startTransition] = useTransition();
-  const [apiError, setApiError] = useState<string | undefined>();
+  const dispatch = useDispatch<AppDispatch>();
+  const { user, errorWhileUpdating } = useSelector((state: RootState) => state.user);
 
-  const submitForm = (values: EditProfileInput) => {
-    startTransition(() => {
-      console.log('submitForm', values);
-      // setApiError()
+  const submitForm = (values: UserInput) => {
+    startTransition(async () => {
+      await dispatch(updateUser(values));
     });
   };
 
   return (
     <div className='pt-8 pl-8 w-full'>
-      <Formik<EditProfileInput>
-        initialValues={editProfileFormInitialValues}
+      <Formik<EditProfileFormikForm>
+        enableReinitialize
+        initialValues={user || editProfileFormInitialValues}
         validationSchema={editProfileFormValidationSchema}
         onSubmit={(values) => {
           submitForm(values);
@@ -30,7 +35,7 @@ const EditProfile = () => {
         <Form>
           <EditProfileForm
             isLoading={isLoading}
-            apiError={apiError}
+            apiError={errorWhileUpdating}
           />
         </Form>
       </Formik>

@@ -9,7 +9,7 @@ const DashboardRecentTransaction = () => {
     <Section title='Recent Transaction'>
       <Card
         aria-labelledby='recent-transaction-card'
-        className='py-6 max-h-[235px] overflow-y-auto scrollbar'
+        className='p-6 max-h-[235px] overflow-y-auto scrollbar'
       >
         <RecentTransaction />
       </Card>

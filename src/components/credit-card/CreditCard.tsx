@@ -24,7 +24,7 @@ const CreditCard: React.FC<CreditCardProps> = (props) => {
         <div className='flex items-center justify-between'>
           <div>
             <label className='label'>Balance</label>
-            <p className='description !text-xl !leading-[22px]'>${balance}</p>
+            <p className='description !text-xl !leading-[22px]'>${balance.toLocaleString('en-US')}</p>
           </div>
           <ChipIcon darkImage={isSecondaryVariant} />
         </div>
