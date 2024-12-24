@@ -8,7 +8,7 @@ import { useEventListener } from '../../../hooks/useEventListener';
 import { cn } from '../../../utils';
 import { useMergedRefs } from '../../../hooks/useMergedRefs';
 import { composeEventHandlers } from '../../../utils/eventUtils';
-import { KEYS } from '../../../constanst/keys';
+import { KEYS } from '../../../constants/keys';
 
 /* -------------------------------------------------------------------------------------------------
  * Popover

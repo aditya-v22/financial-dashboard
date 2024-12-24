@@ -1,8 +1,33 @@
-import { FALLBACK_AVATAR } from '../../constanst/images';
+import { FALLBACK_AVATAR } from '../../constants/images';
 import { cn } from '../../utils';
 import { Slider } from './Slider';
 
 const CONTACTS_NAME = 'Contacts';
+
+const contacts = [
+  {
+    id: '1',
+    name: 'John Doe',
+    profilePictureUrl: 'https://randomuser.me/api/portraits/men/1.jpg',
+    type: 'CEO',
+  },
+  {
+    id: '2',
+    name: 'Lucy Kane',
+    profilePictureUrl: 'https://randomuser.me/api/portraits/women/1.jpg',
+    type: 'Clerk',
+  },
+  {
+    id: '3',
+    name: 'John Doe',
+    avatar: FALLBACK_AVATAR,
+    balance: 2500,
+  },
+  {
+    id: '4',
+    name: 'John Doe',
+  },
+];
 
 interface ContactsProps {
   selectedUser: string;

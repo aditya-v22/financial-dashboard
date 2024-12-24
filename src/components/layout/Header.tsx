@@ -1,7 +1,7 @@
 import React from 'react';
 import { BellIcon, SettingIcon } from '../icons';
 import { Button } from '../ui/button';
-import { FALLBACK_AVATAR } from '../../constanst/images';
+import { FALLBACK_AVATAR } from '../../constants/images';
 import { Link, useLocation } from 'react-router-dom';
 import { pageTitles } from './sidebarItems';
 import { useSelector } from 'react-redux';

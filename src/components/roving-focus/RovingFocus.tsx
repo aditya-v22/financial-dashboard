@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
-import { KEYS } from '../../constanst/keys';
+import { KEYS } from '../../constants/keys';
 import { RovingFocusContext } from './context';
 
 /* -------------------------------------------------------------------------------------------------

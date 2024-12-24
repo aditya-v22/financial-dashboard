@@ -5,7 +5,7 @@ import { cn } from '../../../utils';
 import { RovingFocusProvider, useRovingFocus } from '../../roving-focus';
 import { useMergedRefs } from '../../../hooks/useMergedRefs';
 import { composeEventHandlers } from '../../../utils/eventUtils';
-import { KEYS } from '../../../constanst/keys';
+import { KEYS } from '../../../constants/keys';
 
 /* -------------------------------------------------------------------------------------------------
  * Tabs

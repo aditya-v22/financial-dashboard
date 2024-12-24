@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { PencilIcon } from '../icons';
 import { useField } from 'formik';
-import { FALLBACK_AVATAR } from '../../constanst/images';
+import { FALLBACK_AVATAR } from '../../constants/images';
 
 const ProfilePicture: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
