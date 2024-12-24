@@ -24,10 +24,9 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
   return (
     <header
       aria-label='header'
-      className={cn(
-        'bg-light min-h-[140px] md:min-h-[101px] w-full border-b border-primary-200 flex md:flex-row flex-col justify-between items-center p-6 lg:px-10 lg:sticky lg:top-0 z-50',
-        { 'max-md:border-b-0': location.pathname === '/' }
-      )}
+      className={
+        'bg-light min-h-[140px] md:min-h-[101px] w-full border-b border-primary-200 flex md:flex-row flex-col justify-between items-center p-6 lg:px-10 lg:sticky lg:top-0 z-50 max-lg:border-b-0'
+      }
     >
       <div className='w-full flex justify-between items-center'>
         {/* Menu button */}

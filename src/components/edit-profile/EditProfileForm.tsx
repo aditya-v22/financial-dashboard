@@ -14,12 +14,12 @@ interface EditProfileFormProps {
 const EditProfileForm: React.FC<EditProfileFormProps> = ({ isLoading, apiError }) => {
   return (
     <>
-      <div className='flex gap-14'>
-        <div className='flex-shrink-0'>
+      <div className='flex flex-col lg:flex-row gap-[22px] md:gap-14'>
+        <div className='flex-shrink-0 flex justify-center items-center lg:block'>
           <ProfilePicture />
         </div>
 
-        <div className='flex-grow grid grid-cols-2 gap-x-[30px] gap-y-3'>
+        <div className='flex-grow grid grid-cols-1 md:grid-cols-2 gap-x-[30px] gap-y-1 md:gap-y-3'>
           <InputField
             name='name'
             label='Your Name'
@@ -86,12 +86,13 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ isLoading, apiError }
         </div>
       </div>
 
-      <div className='flex justify-between items-center gap-10 mt-8'>
+      <div className='flex flex-col md:flex-row justify-between items-center gap-2 md:gap-10 mt-1 md:mt-8'>
         <p className='text-error-500 text-xs'>{apiError}</p>
         <Button
           type='submit'
           size='lg'
           loading={isLoading}
+          className='max-md:w-full'
         >
           Save
         </Button>

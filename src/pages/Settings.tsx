@@ -7,10 +7,10 @@ import { SecuritySetting } from '../components/security-setting';
 
 const Settings: React.FC = () => {
   return (
-    <div className='mx-10 my-[30px]'>
+    <div className='min-h-full py-6 px-6 lg:px-10 lg:py-[30px] bg-gray-50'>
       <Card
         aria-labelledby='settings-card'
-        className='pb-10'
+        className='p-5  md:pb-10'
       >
         <Tabs defaultValue='edit-profile'>
           <TabsList>

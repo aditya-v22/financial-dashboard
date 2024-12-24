@@ -16,7 +16,7 @@ const Label: React.FC<LabelProps> = (props) => {
 
   return (
     <label
-      className={cn('inline-flex items-center gap-1 text-gray-950', className)}
+      className={cn('inline-flex items-center gap-1 text-[13px] md:text-base text-gray-950', className)}
       {...labelProps}
     >
       {children}

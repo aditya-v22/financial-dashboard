@@ -24,7 +24,7 @@ const InputField: React.FC<InputFieldProps> = (props) => {
       {label && (
         <Label
           htmlFor={name}
-          className='mb-1'
+          className='md:mb-1'
           {...LabelProps}
         >
           {label}
@@ -41,7 +41,9 @@ const InputField: React.FC<InputFieldProps> = (props) => {
       />
 
       {showErrorMessage && (
-        <div className='h-3 text-xs text-error-500'>{meta.touched && meta.error && <ErrorMessage name={name} />}</div>
+        <div className='h-2 md:h-3 text-[10px] md:text-xs text-error-500'>
+          {meta.touched && meta.error && <ErrorMessage name={name} />}
+        </div>
       )}
     </div>
   );

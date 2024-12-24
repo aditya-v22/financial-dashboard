@@ -64,7 +64,7 @@ const TabsList: React.FC<TabsListProps> = (props) => {
       <div
         role='tablist'
         className={cn(
-          'w-full h-full overflow-x-auto overflow-y-hidden scrollbar flex gap-10 border-b border-gray-100',
+          'w-full h-full overflow-x-auto overflow-y-hidden scrollbar flex gap-3 md:gap-10 border-b border-gray-100',
           className
         )}
         {...tabsListProps}
@@ -111,7 +111,7 @@ const TabsTrigger: React.FC<TabsTriggerProps> = (props) => {
       disabled={disabled}
       id={buttonId}
       className={cn(
-        'group/tab flex-shrink-0 relative px-4 pb-2.5 text-primary-100 font-medium transition-all hover:text-gray-950/70 focus-within:text-gray-950/70 focus-within:outline-none outline-none data-[state=active]:text-gray-950 data-[disabled]:text-gray-200 data-[disabled]:cursor-not-allowed',
+        'group/tab flex-shrink-0 relative px-2 md:px-4 pb-2.5 text-[13px] md:text-base text-primary-100 font-medium transition-all hover:text-gray-950/70 focus-within:text-gray-950/70 focus-within:outline-none outline-none data-[state=active]:text-gray-950 data-[disabled]:text-gray-200 data-[disabled]:cursor-not-allowed',
         className
       )}
       {...tabsTriggerProps}

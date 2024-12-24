@@ -23,7 +23,7 @@ const ProfilePicture: React.FC = () => {
   };
 
   return (
-    <div className='relative'>
+    <div className='relative w-fit'>
       <input
         hidden
         ref={inputRef}

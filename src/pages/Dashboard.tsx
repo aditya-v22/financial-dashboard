@@ -13,7 +13,7 @@ registerChartComponents();
 
 const Dashboard: React.FC = () => {
   return (
-    <div className='py-2 px-4 lg:px-10 lg:py-[30px] bg-light lg:bg-gray-50'>
+    <div className='min-h-full py-2 px-4 lg:px-10 lg:py-[30px] bg-light lg:bg-gray-50'>
       <div className='grid gap-8'>
         <div className='grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-8'>
           <MyCards />
