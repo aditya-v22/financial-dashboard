@@ -5,10 +5,12 @@ import { AppDispatch, RootState } from '../../store/store';
 import { useEffect, useMemo } from 'react';
 import { fetchMyCards } from '../../store/slices/cardSlice';
 import Loader from '../ui/PageLoader';
+import { useNavigate } from 'react-router-dom';
 
 const CARD_NAME = 'MyCards';
 
 const MyCards = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const { cards, error, loading } = useSelector((state: RootState) => state.card);
 
@@ -45,7 +47,11 @@ const MyCards = () => {
     <Section
       title='My Cards'
       className='relative'
-      headerProps={{ showButton: true, buttonText: 'See All', ButtonProps: { className: 'absolute right-0' } }}
+      headerProps={{
+        showButton: true,
+        buttonText: 'See All',
+        ButtonProps: { className: 'absolute right-0', onClick: () => navigate('/credit-cards') },
+      }}
     >
       <div className='flex gap-7 overflow-x-auto max-md:pb-1.5 overflow-y-hidden scrollbar'>{renderCards}</div>
     </Section>
