@@ -15,6 +15,8 @@ const buttonVariants = cva(
         secondary: 'bg-gray-500 text-white hover:bg-gray-600 focus:ring-gray-300',
         danger: 'bg-red-500 text-white hover:bg-red-600 focus:ring-red-300',
         outline: 'border border-gray-300 text-gray-700 hover:bg-gray-100 focus:ring-gray-300',
+        ghost:
+          'text-primary-900 bg-transparent ring-0 hover:ring-0 focus:ring-0 hover:bg-primary-100 active:bg-primary-100 focus-within:ring-1 focus-within:ring-red-500',
       },
       size: {
         sm: 'px-3 py-1 text-sm rounded-md',
